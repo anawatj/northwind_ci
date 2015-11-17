@@ -2,7 +2,7 @@ app.controller('categoriesShowCtrl',function($scope,categoriesService)
 {
 	$scope.model=
 	{
-		categoryName:"",
+		name:"",
 		description:""
 	};
 	$scope.results=[];

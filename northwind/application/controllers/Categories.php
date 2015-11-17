@@ -32,4 +32,9 @@
 				$ret = $this->categories->get_all_entries();
 				echo json_encode($ret);
 			}
+			public function search()
+			{
+				$ret= $this->categories->get_by_query();
+				echo json_encode($ret);
+			}
 	}

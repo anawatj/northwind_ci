@@ -45,5 +45,16 @@
                     
         	
                 }
+                public function get_by_query()
+                {
+                    $obj=json_decode(file_get_contents('php://input'));
+                    $this->db->from('categories');
+                    $this->db->where(array(
+                            'name' => $obj->name,
+                            'description'=>$obj->description
+                        ));
+                    $query = $this->db->get();
+                    return $query->result();
+                }
 	}
 ?>
