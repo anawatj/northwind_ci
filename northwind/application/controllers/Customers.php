@@ -26,6 +26,11 @@
 						$ret->demos = $demos;
 						echo json_encode($ret);
 		}
+		public function search()
+		{
+				$ret = $this->customers->getByQuery();
+				echo json_encode($ret);
+		}
 		public function save()
 		{
 				$ret = $this->customers->save();

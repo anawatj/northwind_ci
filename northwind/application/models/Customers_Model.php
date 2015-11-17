@@ -32,7 +32,15 @@
 		}
 		public function getByQuery()
 		{
-
+				/*$obj=json_decode(file_get_contents('php://input'));
+				$this->db->from("customers");
+				$this->db->join('city','customers.city_id=city.id');
+				$this->db->join('country','customers.country_id=country.id');
+				$this->db->join('region','customers.region_id=region.id');
+				$this->db->where($obj);
+				$this->db->select('customers.id,company_name,contact_name,contact_title,region.name,country.name,city.name');
+				$query =$this->get();
+				return $query->result();*/
 		}
 		public function save()
 		{
