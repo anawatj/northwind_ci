@@ -19,11 +19,17 @@
 		}
 		public function single()
 		{
-
+						$id=$this->input->get('key');
+						$rets= $this->customers->getById($id);
+						$ret=$rets[0];
+						$demos = $this->demographic->getByCustomers($ret->id);
+						$ret->demos = $demos;
+						echo json_encode($ret);
 		}
 		public function save()
 		{
-
+				$ret = $this->customers->save();
+				echo $ret;
 		}
 		public function delete()
 		{

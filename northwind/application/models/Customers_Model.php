@@ -43,7 +43,7 @@
 				$id=   $this->db->insert_id();
 				foreach($obj->demos as $item)
 				{
-					$this->db->insert("customers_demographic",
+					$this->db->insert("customers_demographics",
 						array(
 							'customer_id'=>$id,
 							'demographic_id'=>$item->id
@@ -53,23 +53,23 @@
 			}else
 			{
 				$this->db->update('customers',$obj,array('id'=>$obj->id));
-				$this->db->from('customers_demographic');
+				$this->db->from('customers_demographics');
 				$this->db->where('customer_id',$obj->id);
 				$query_demo_db = $this->db->get();
 				$result_demo_db = $query_demo_db->result();
 				foreach($result_demo_db as $item)
 				{
-					$hasValue = $this->findDemoDb($item->id,$obj);
+					$hasValue = $this->findDemoDb($item->demographic_id,$obj);
 					if($hasValue==false)
 					{
-						$this->db->delete('customers_demographic',array(
+						$this->db->delete('customers_demographics',array(
 								'customer_id'=> $obj->id,
-								'demographic_id'=>$item->id
+								'demographic_id'=>$item->demographic_id
 							));
 					}
 				}
 				foreach ($obj->demos as $item) {
-					$this->db->from('customers_demographic');
+					$this->db->from('customers_demographics');
 					$this->db->where(
 							array(
 									'customer_id'=>$obj->id,
@@ -80,7 +80,7 @@
 					$demo_result = $query->result();
 					if(count($demo_result)==0)
 					{
-						$this->db->insert("customers_demographic",
+						$this->db->insert("customers_demographics",
 						array(
 								'customer_id'=>$obj->id,
 								'demographic_id'=>$item->id

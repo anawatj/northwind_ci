@@ -1,5 +1,5 @@
 var url = "http://localhost:8585/northwind/index.php/";
-var app =angular.module('northwind',[]);
+var app =angular.module('northwind',["checklist-model"]);
 app.factory(
 				'$pageUtils',
 				[
