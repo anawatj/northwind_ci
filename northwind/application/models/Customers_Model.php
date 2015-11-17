@@ -1,0 +1,112 @@
+<?php
+	class Customers_Model extends CI_Model
+	{
+		public $id;
+		public $company_name;
+		public $contact_name;
+		public $contact_title;
+		public $address;
+		public $city_id;
+		public $region_id;
+		public $postal_code;
+		public $country_id;
+		public $phone;
+		public $fax;
+
+		public function __construct()
+		{
+			       parent::__construct();
+                   $this->load->database();
+		}
+		public function getAll()
+		{
+				$query = $this->db->get("customers");
+				return $query->result();
+		}
+		public function getById($id)
+		{
+				$this->db->from("customers");
+				$this->db->where('id',$id);
+				$query =  $this->db->get();
+				return $query->result();
+		}
+		public function getByQuery()
+		{
+
+		}
+		public function save()
+		{
+			$obj=json_decode(file_get_contents('php://input'));
+			if($obj->id==0)
+			{
+				$this->db->insert('customers',$obj);
+				$id=   $this->db->insert_id();
+				foreach($obj->demos as $item)
+				{
+					$this->db->insert("customers_demographic",
+						array(
+							'customer_id'=>$id,
+							'demographic_id'=>$item->id
+							));
+				}
+				return $id;
+			}else
+			{
+				$this->db->update('customers',$obj,array('id'=>$obj->id));
+				$this->db->from('customers_demographic');
+				$this->db->where('customer_id',$obj->id);
+				$query_demo_db = $this->db->get();
+				$result_demo_db = $query_demo_db->result();
+				foreach($result_demo_db as $item)
+				{
+					$hasValue = $this->findDemoDb($item->id,$obj);
+					if($hasValue==false)
+					{
+						$this->db->delete('customers_demographic',array(
+								'customer_id'=> $obj->id,
+								'demographic_id'=>$item->id
+							));
+					}
+				}
+				foreach ($obj->demos as $item) {
+					$this->db->from('customers_demographic');
+					$this->db->where(
+							array(
+									'customer_id'=>$obj->id,
+									'demographic_id'=>$item->id
+								)
+						);
+					$query = $this->db->get();
+					$demo_result = $query->result();
+					if(count($demo_result)==0)
+					{
+						$this->db->insert("customers_demographic",
+						array(
+								'customer_id'=>$obj->id,
+								'demographic_id'=>$item->id
+							));
+					}
+					# code...
+				}
+				return  $obj->id;
+
+			}
+		}
+		public function remove()
+		{
+
+		}
+		private function findDemoDb($demographic_id,$obj)
+		{
+			foreach($obj->demos as $item)
+			{
+				if($item->id==$demographic_id)
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
+		
+	}

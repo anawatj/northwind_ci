@@ -131,7 +131,12 @@ $autoload['language'] = array();
 |	$autoload['model'] = array('first_model' => 'first');
 */
 $autoload['model'] = array(
-	'Categories_Model'=>'categories'
+	'Categories_Model'=>'categories',
+	'Country_Model'=>'country',
+	'City_Model'=>'city',
+	'Region_Model'=>'region',
+	'Demographic_Model'=>'demographic',
+	'Customers_Model'=>'customers'
 	);
 
 
