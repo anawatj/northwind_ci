@@ -68,8 +68,3 @@ Acknowledgement
 
 The CodeIgniter team would like to thank EllisLab, all the
 contributors to the CodeIgniter project and you, the CodeIgniter user.
-
-
-1 application is code in server side
-	 
-2 public is code in client side
