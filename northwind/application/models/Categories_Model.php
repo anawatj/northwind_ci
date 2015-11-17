@@ -12,8 +12,15 @@
                 }
                 public function get_all_entries()
                 {
-        	       $query=$this->db->get('entries',10);
+        	       $query=$this->db->get('categories',10);
         	       return $query->result();
+                }
+                public function get_by_id($id)
+                {
+                    $this->db->from('categories');
+                    $this->db->where('id',$id);
+                    $query =  $this->db->get();
+                    return $query->result();
                 }
                 public function save_entry()
                 {

@@ -1,4 +1,4 @@
-app.controller('categoriesEntryCtrl',function($scope,categoriesService)
+app.controller('categoriesEntryCtrl',function($scope,categoriesService,$pageUtils)
 {
 	$scope.model=
 	{
@@ -8,6 +8,17 @@ app.controller('categoriesEntryCtrl',function($scope,categoriesService)
 	};
 	$scope.init=function()
 	{
+			$scope.urlParameter = $pageUtils.getUrlVars();
+			$scope.id = $scope.urlParameter.id;
+			if($scope.id != undefined && $scope.id!=null && $scope.id!=0)
+			{
+				categoriesService.getById($scope.id)
+				.success(function(data)
+				{
+					$scope.model=data;
+					$scope.model.id=$scope.id;
+				});
+			}
 
 	};
 	$scope.save=function()
