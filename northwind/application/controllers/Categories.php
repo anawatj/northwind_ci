@@ -15,4 +15,11 @@
 				$this->layout->name="default";
 				$this->layout->view('categories/show');
 			}
+			public function save()
+			{
+
+				$ret = $this->categories->save_entry();
+				echo $ret;
+				
+			}
 	}

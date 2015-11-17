@@ -6,7 +6,7 @@
 						<label>CategoryName</label>
 				</div>
 				<div class="col-xs-6">
-						<input type="text" class="form-control" ng-model="model.categoryName"/>
+						<input type="text" class="form-control" ng-model="model.name"/>
 				</div>
 			</div>
 			<div class="row">
