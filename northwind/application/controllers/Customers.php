@@ -4,11 +4,13 @@
 
 		public function entry()
 		{
-
+				$this->layout->name="default";
+				$this->layout->view('customers/entry');
 		}
 		public function show()
 		{
-
+				$this->layout->name="default";
+				$this->layout->view('customers/show');
 		}
 		public function all()
 		{
