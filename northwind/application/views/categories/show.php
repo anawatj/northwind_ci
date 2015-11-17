@@ -20,5 +20,39 @@
 				<button class="btn btn-primary" ng-click="search()">Search</button>
 				<button class="btn btn-primary" ng-click="clear()">Clear</button>
 		</div>
+		<div class="row">
+			<div class="col-xs-9">
+				<table class="table table-striped table-bordered table-hover table-condensed">
+						<thead class="primary">
+							<tr>
+								<th></th>
+								<th></th>
+								<th>ID</th>
+								<th>Name</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="item in results">
+								<td>
+									<button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></button>
+								</td>
+								<td>
+									<button class="btn btn-primary"><i class="glyphicon glyphicon-trash"></i></button>
+								</td>
+								<td>
+									{{item.id}}
+								</td>
+								<td>
+									{{item.name}}
+								</td>
+								<td>
+									{{item.description}}
+								</td>
+							</tr>
+						</tbody>
+				</table>
+		    </div>
+		</div>
 	</form>
 </div>

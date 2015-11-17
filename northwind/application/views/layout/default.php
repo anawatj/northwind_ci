@@ -10,6 +10,14 @@
 	<script type="text/javascript" src="../../public/js/app/services/categoriesService.js"></script>
 	<script type="text/javascript" src="../../public/js/app/controllers/categories/entry.js"></script>
 	<script type="text/javascript" src="../../public/js/app/controllers/categories/show.js"></script>
+	    <style type="text/css">
+            .primary
+            {
+                     color: #fff;
+                     background-color: #337ab7;
+                     border-color: #2e6da4;
+            }
+    </style>
 </head>
 <body ng-app="northwind">
 	    <?php echo $content; ?>
