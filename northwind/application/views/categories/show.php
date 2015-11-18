@@ -35,7 +35,7 @@
 						<tbody>
 							<tr ng-repeat="item in results">
 								<td>
-									<button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></button>
+									<button class="btn btn-primary" ng-click="edit(item)"><i class="glyphicon glyphicon-pencil"></i></button>
 								</td>
 								<td>
 									<button class="btn btn-primary"><i class="glyphicon glyphicon-trash"></i></button>

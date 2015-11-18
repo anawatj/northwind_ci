@@ -20,6 +20,14 @@ app.controller('categoriesShowCtrl',function($scope,categoriesService)
 	};
 	$scope.clear=function()
 	{
-
+			$scope.model=
+			{
+				name:"",
+				description:""
+			};
+	};
+	$scope.edit=function(item)
+	{
+		window.location=url+'categories/entry?id='+item.id;
 	};
 });

@@ -64,4 +64,8 @@ app.controller('customersShowCtrl',function($scope,customersService,masterServic
 					region_id:0
 				};
 		};
+		$scope.edit=function(item)
+		{
+			window.location=url+'customers/entry?id='+item.id;
+		};
 });
