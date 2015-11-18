@@ -10,19 +10,19 @@
                         parent::__construct();
                         $this->load->database();
                 }
-                public function get_all_entries()
+                public function getAll()
                 {
         	       $query=$this->db->get('categories',10);
         	       return $query->result();
                 }
-                public function get_by_id($id)
+                public function getById($id)
                 {
                     $this->db->from('categories');
                     $this->db->where('id',$id);
                     $query =  $this->db->get();
                     return $query->result();
                 }
-                public function save_entry()
+                public function save()
                 {
 
         	        $obj=json_decode(file_get_contents('php://input'));
@@ -45,7 +45,7 @@
                     
         	
                 }
-                public function get_by_query()
+                public function getByQuery()
                 {
                     $obj=json_decode(file_get_contents('php://input'));
                     $this->db->from('categories');
