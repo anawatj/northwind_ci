@@ -11,10 +11,13 @@
 	<script type="text/javascript" src="../../public/js/app/services/masterService.js"></script>
 	<script type="text/javascript" src="../../public/js/app/services/customersService.js"></script>
 	<script type="text/javascript" src="../../public/js/app/services/categoriesService.js"></script>
+	<script type="text/javascript" src="../../public/js/app/services/territoriesService.js"></script>
 	<script type="text/javascript" src="../../public/js/app/controllers/categories/entry.js"></script>
 	<script type="text/javascript" src="../../public/js/app/controllers/categories/show.js"></script>
 	<script type="text/javascript" src="../../public/js/app/controllers/customers/entry.js"></script>
 	<script type="text/javascript" src="../../public/js/app/controllers/customers/show.js"></script>
+	<script type="text/javascript" src="../../public/js/app/controllers/territories/entry.js"></script>
+	<script type="text/javascript" src="../../public/js/app/controllers/territories/show.js"></script>
 	    <style type="text/css">
             .primary
             {

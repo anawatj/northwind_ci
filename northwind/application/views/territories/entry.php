@@ -1,4 +1,4 @@
-<div class="col-xs-12">
+<div class="col-xs-12" ng-controller="territoriesEntryCtrl" ng-init="init()">
 	<fieldset>
 		<legend>Save Territories</legend>
 		<form>
