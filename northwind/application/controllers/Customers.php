@@ -33,7 +33,9 @@
 		}
 		public function save()
 		{
+				$this->db->trans_start();
 				$ret = $this->customers->save();
+				$this->db->trans_complete();
 				echo $ret;
 		}
 		public function delete()

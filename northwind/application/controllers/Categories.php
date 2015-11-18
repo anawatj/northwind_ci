@@ -17,8 +17,9 @@
 			}
 			public function save()
 			{
-
+				$this->db->trans_start();
 				$ret = $this->categories->save();
+				$this->db->trans_complete();
 				echo $ret;
 				
 			}
