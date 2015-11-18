@@ -1,0 +1,67 @@
+app.controller('customersShowCtrl',function($scope,customersService,masterService,$q)
+{
+		$scope.model=
+		{
+			company_name:"",
+			contact_name:"",
+			contact_title:"",
+			country_id:0,
+			city_id:0,
+			region_id:0
+		};
+		$scope.results=[];
+		$scope.countries=[];
+		$scope.regions=[];
+		$scope.cities=[];
+		$scope.init=function()
+		{
+				var promise = $scope.load();
+				promise.then(function()
+				{
+
+				});
+		};
+		$scope.load=function()
+		{
+				 var deferred = $q.defer();
+				 var promise = $q.all(
+				 [
+				 	masterService.getAllCountry(),
+				 	masterService.getAllRegion()
+				 ]).then(function(data)
+				 {
+				 	$scope.countries=data[0].data;
+				 	$scope.regions=data[1].data;				 	
+		  			 deferred.resolve(data);
+				 });
+				 return promise;
+		};
+		$scope.countryChange=function()
+		{
+				masterService.getAllCity($scope.model.country_id)
+				.success(function(data)
+				{
+					$scope.cities=data;
+				});
+		};
+		$scope.search=function()
+		{
+				customersService.search($scope.model)
+				.success(function(data)
+				{
+					$scope.results=data;
+				});
+		};
+		$scope.clear=function()
+		{
+				$scope.model=
+				{
+					company_name:"",
+					contact_name:"",
+					contact_title:"",
+					country_id:0,
+					city_id:0,
+					region_id:0
+				};
+		};
+});
