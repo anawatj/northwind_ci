@@ -4,11 +4,13 @@
 
 			public function entry()
 			{
-
+					$this->layout->name="default";
+					$this->layout->view("territories/entry");
 			}
 			public function show()
 			{
-
+					$this->layout->name="default";
+					$this->layout->view("territories/show");
 			}
 			public function all()
 			{
