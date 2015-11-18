@@ -1,4 +1,4 @@
-<div class="col-xs-12">
+<div class="col-xs-12" ng-controller="territoriesShowCtrl" ng-init="init()">
 	<form>
 		<div class="row">
 			<div class="col-xs-3">
@@ -40,7 +40,7 @@
 						<tbody>
 							<tr ng-repeat="item in results">
 								<td>
-									<button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></button>
+									<button class="btn btn-primary" ng-click="edit(item)"><i class="glyphicon glyphicon-pencil"></i></button>
 								</td>
 								<td>
 									<button class="btn btn-primary"><i class="glyphicon glyphicon-trash"></i></button>

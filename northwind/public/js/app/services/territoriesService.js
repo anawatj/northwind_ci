@@ -13,5 +13,9 @@ app.factory('territoriesService',['$http',function($http)
 	{
 		return $http.post(url+"territories/save",model);
 	};
+	factory.search=function(model)
+	{
+		return $http.post(url+"territories/search",model);
+	}
 	return factory;
 }]);

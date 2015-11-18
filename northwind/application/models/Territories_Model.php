@@ -20,6 +20,25 @@
 				$query = $this->db->get();
 				return $query->result();
 		}
+		public function getByQuery()
+		{
+			$obj=json_decode(file_get_contents('php://input'));
+			$where = array();
+			if($obj->name!='')
+			{
+				$where['territories.name like ']= '%'.$obj->name.'%';
+			}
+			if($obj->region_id!=0)
+			{
+				$where['region_id']=$obj->region_id;
+			}
+			$this->db->from("territories");
+			$this->db->join('region','territories.region_id=region.id');
+			$this->db->select('territories.id,territories.name,region.name as region_name');
+			$this->db->where($where);
+			$query = $this->db->get();
+			return $query->result();
+		}
 		public function save()
 		{
 				 $obj=json_decode(file_get_contents('php://input'));

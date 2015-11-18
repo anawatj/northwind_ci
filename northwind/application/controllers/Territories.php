@@ -25,6 +25,12 @@
 					echo json_encode($ret[0]);
 
 			}
+			public function search()
+			{
+				$ret = $this->territories->getByQuery();
+				echo json_encode($ret);
+
+			}
 			public function save()
 			{
 					$this->db->trans_start();
