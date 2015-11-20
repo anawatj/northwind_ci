@@ -137,7 +137,9 @@ $autoload['model'] = array(
 	'Region_Model'=>'region',
 	'Demographic_Model'=>'demographic',
 	'Customers_Model'=>'customers',
-	'Territories_Model'=>'territories'
+	'Territories_Model'=>'territories',
+	'Department_Model'=>'department',
+	'Employees_Model'=>'employees'
 	);
 
 
